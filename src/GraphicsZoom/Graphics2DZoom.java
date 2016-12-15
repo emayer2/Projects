@@ -1,7 +1,4 @@
 // Ethan Mayer
-// CSE 331 AA
-// DrawPath.java draws a picture of the UW campus,
-// and a path between two buildings.
 
 package GraphicsZoom;
 
