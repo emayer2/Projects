@@ -14,10 +14,10 @@ public class Face extends JPanel {
   Graphics2DZoom gzoom = new Graphics2DZoom(1.0);
   private double zoom = 2.0;
   private double currZoom = 1.0;
-  private final double ZOOM_STEP = 0.001;
+  private final double ZOOM_STEP = 0.0001;
   private boolean zoomingIn = true;
 
-  /** Paint a smiley face centered in this JPanel */
+  /** Paint a smiley face/grid centered in this JPanel */
   @Override
   public void paintComponent(Graphics g) {
     Graphics2D g2 = (Graphics2D) g;
@@ -43,35 +43,35 @@ public class Face extends JPanel {
     	}
     }
     
-//    // draw face that takes up 80% of the JPanel
-//    int faceTop  = height/10;
-//    int faceLeft = width/10;
-//    int faceHeight = height - height/5;
-//    int faceWidth  = width  - width/5;
-//    
-//    // outline
-//    g2.setColor(Color.yellow);
-//    g2.fillOval(faceLeft, faceTop, faceWidth, faceHeight);
-//    
-//    // eyes
-//    g2.setColor(Color.black);
-//    g2.fillOval(faceLeft+(int)(width*0.2), faceTop+(int)(height*0.2),
-//                width/10, height/10);
-//    g2.fillOval(faceLeft+(int)(width*0.5), faceTop+(int)(height*0.2),
-//                width/10, height/10);
-//    
-//    // nose
-//    Polygon nose = new Polygon();
-//    nose.addPoint(faceLeft+(int)(width*0.40), faceTop+(int)(height*0.35));
-//    nose.addPoint(faceLeft+(int)(width*0.45), faceTop+(int)(height*0.50));
-//    nose.addPoint(faceLeft+(int)(width*0.35), faceTop+(int)(height*0.50));
-//    g2.fillPolygon(nose);
-//    
-//    // mouth
-//    g2.fillArc(faceLeft+(int)(width*0.25), faceTop+(int)(height*0.5),
-//               (int)(width*0.3), (int)(height*0.2),
-//               0, -180);
-//    
+    // draw face that takes up 80% of the JPanel
+    int faceTop  = height/10;
+    int faceLeft = width/10;
+    int faceHeight = height - height/5;
+    int faceWidth  = width  - width/5;
+    
+    // outline
+    g2.setColor(Color.yellow);
+    g2.fillOval(faceLeft, faceTop, faceWidth, faceHeight);
+    
+    // eyes
+    g2.setColor(Color.black);
+    g2.fillOval(faceLeft+(int)(width*0.2), faceTop+(int)(height*0.2),
+                width/10, height/10);
+    g2.fillOval(faceLeft+(int)(width*0.5), faceTop+(int)(height*0.2),
+                width/10, height/10);
+    
+    // nose
+    Polygon nose = new Polygon();
+    nose.addPoint(faceLeft+(int)(width*0.40), faceTop+(int)(height*0.35));
+    nose.addPoint(faceLeft+(int)(width*0.45), faceTop+(int)(height*0.50));
+    nose.addPoint(faceLeft+(int)(width*0.35), faceTop+(int)(height*0.50));
+    g2.fillPolygon(nose);
+    
+    // mouth
+    g2.fillArc(faceLeft+(int)(width*0.25), faceTop+(int)(height*0.5),
+               (int)(width*0.3), (int)(height*0.2),
+               0, -180);
+    
     if (zoomingIn) {
     	currZoom += ZOOM_STEP;
 	    if (currZoom >= zoom) {
