@@ -56,12 +56,12 @@ public class Graphics2DZoom {
 	 */
 	public void zoom(Graphics2D g, double x, double y, double zoomX, double zoomY) {
 		try {
-			// Finds the x, y, and zoom of the current 
+			// Finds the x, y, and zoom of the current
 			AffineTransform tr = g.getTransform();
 			double xPos = tr.getTranslateX();   // x position of current zoom
 			double yPos = tr.getTranslateY();   // y position of current zoom
 			double currZoomX = tr.getScaleX();  // Current x zoom factor
-			double currZoomY = tr.getScaleY();  // Current y zoom factor			
+			double currZoomY = tr.getScaleY();  // Current y zoom factor
 			
 			// Un-zooms and un-translates from the current position
 			g.scale(1.0 / currZoomX, 1.0 / currZoomY);
@@ -70,7 +70,11 @@ public class Graphics2DZoom {
 			// Shifts and zooms to the new location
 			double totZoomX = zoomX * relZoom;
 			double totZoomY = zoomY * relZoom;
-			g.translate(-x * totZoomX * (1 - 1.0/totZoomX), -y * totZoomY * (1 - 1.0/totZoomY));
+			if (totZoomX != 1.0 || totZoomY != 1.0) {
+				g.translate(-x * totZoomX * (1 - 1.0/totZoomX), -y * totZoomY * (1 - 1.0/totZoomY));
+			} else {
+				g.translate(-x, -y);
+			}
 			g.scale(zoomX * relZoom, zoomY * relZoom);
 		} catch (NullPointerException e) {
 			// g was null, throw an IllegalArgumentException
