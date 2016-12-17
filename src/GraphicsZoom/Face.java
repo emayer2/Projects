@@ -3,6 +3,7 @@ package GraphicsZoom;
 import java.awt.*;
 import javax.swing.*;
 
+
 /**
  * Basic Java graphics demo: JPanel with a face drawn in it. 
  * CSE 331 12au-16au.  Based on old intro course examples.
@@ -33,7 +34,7 @@ public class Face extends JPanel {
 		int width  = getWidth();
 
 		// Zooms to the midpoint, 2x zoom
-		gzoom.zoom(g2, width/2.0 * (currZoom - 1), height/2.0 * (currZoom - 1), currZoom);
+		gzoom.zoom(g2, width/2.0, height/2.0, currZoom, width, height);
 
 		// Draws a grid
 		for (int i = 0; i < height/10 + 1; i++) {
@@ -85,6 +86,7 @@ public class Face extends JPanel {
 				zoomingIn = true;
 			}
 		}
+		
 		this.repaint();
 	}
 }
