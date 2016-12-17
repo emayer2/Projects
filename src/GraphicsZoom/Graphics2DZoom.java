@@ -1,4 +1,3 @@
-
 package GraphicsZoom;
 
 import java.awt.Graphics2D;
