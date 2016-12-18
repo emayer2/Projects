@@ -1,0 +1,6 @@
+## Helper program for "Planetary Simulation.py"
+from visual import *
+import Image
+
+
+# Converts files into TGA files for texturing
