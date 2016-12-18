@@ -12,7 +12,7 @@ import javax.swing.*;
  */
 @SuppressWarnings("serial")
 public class Face extends JPanel {
-	private final double ZOOM_STEP = 0.001;
+	private final double ZOOM_STEP = 1.0/600.0;
 	private Graphics2DZoom gzoom = new Graphics2DZoom(1.0);
 	private ZoomTransition tr = new ZoomTransition(1.0, 2.0, ZOOM_STEP);
 
@@ -20,13 +20,13 @@ public class Face extends JPanel {
 	/** Paint a smiley face/grid centered in this JPanel **/
 	@Override
 	public void paintComponent(Graphics g) {
-		Graphics2D g2 = (Graphics2D) g;
 		// Note: The drawing code here uses the old AWT procedural interface to 
 		// draw shapes.  A version taking full advantage of Graphics2D would
 		// create actual shape objects and add them to the picture.
 
 		// paint background
 		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
 
 		// get width and height of drawing area
 		int height = getHeight();
@@ -35,10 +35,12 @@ public class Face extends JPanel {
 		// Zooms to the midpoint, 2x zoom
 		double currZoom = tr.getZoom();
 		tr.step();
-		gzoom.zoom(g2, 
+		gzoom.zoom(g2,
 				   width/2.0,// * (currZoom - 1.0) / (zoom - 1.0),
-				   height/2.0,// * (currZoom - 1.0) / (zoom - 1.0), 
-				   currZoom, width, height);
+				   height/2.0,// * (currZoom - 1.0) / (zoom - 1.0),
+				   currZoom,
+				   width,
+				   height);
 		
 		// Draws a grid
 		for (int i = 0; i < height/10 + 1; i++) {
