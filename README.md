@@ -1,5 +1,5 @@
 # Projects
 
 Current Finished Projects:
-  - Graphics2DZoom
+  - Swing2DTools/Swing2DZoom
   - Python Simulations
