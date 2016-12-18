@@ -1,4 +1,4 @@
-package Graphics2DZoom;
+package Swing2DZoom.test;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,10 @@
-package Graphics2DZoom;
+package Swing2DZoom.test;
 
 import java.awt.*;
 import javax.swing.*;
+
+import Swing2DZoom.Graphics2DZoom;
+import Swing2DZoom.ZoomTransition;
 
 
 /**

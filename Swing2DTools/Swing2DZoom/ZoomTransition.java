@@ -1,4 +1,4 @@
-package Graphics2DZoom;
+package Swing2DZoom;
 
 /**
  * <p>ZoomTransition creates a transition of states of zoom that

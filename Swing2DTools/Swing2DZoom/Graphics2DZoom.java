@@ -1,4 +1,4 @@
-package Graphics2DZoom;
+package Swing2DZoom;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;

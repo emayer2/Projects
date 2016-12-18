@@ -1,4 +1,4 @@
-package Graphics2DZoom.test;
+package Swing2DZoom.test;
 
 import org.junit.runner.*;
 import org.junit.runners.*;

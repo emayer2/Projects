@@ -1,4 +1,4 @@
-package Graphics2DZoom.test;
+package Swing2DZoom.test;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import Graphics2DZoom.ZoomTransition;
+import Swing2DZoom.ZoomTransition;
 
 public class ZoomTransitionTest {
 	private final double TOL = 0.00000001;
