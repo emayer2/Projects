@@ -62,31 +62,30 @@ public class Graphics2DZoom {
 			 		 double x, double y,
 			 		 double zoomX, double zoomY,
 			 		 double width, double height) {
-		try {
-			// Finds the x, y, and zoom of the current
-			AffineTransform tr = g.getTransform();
-			double xPos = tr.getTranslateX();   // x position of current zoom
-			double yPos = tr.getTranslateY();   // y position of current zoom
-			double currZoomX = tr.getScaleX();  // Current x zoom factor
-			double currZoomY = tr.getScaleY();  // Current y zoom factor
-
-			// Un-zooms and un-translates from the current position
-			g.scale(1.0 / currZoomX, 1.0 / currZoomY);
-			g.translate(xPos, yPos);
-
-			// Shifts and zooms to the new location
-			double totZoomX = zoomX * relZoom;
-			double totZoomY = zoomY * relZoom;
-			
-			g.translate(-(x - (width / (2.0 * totZoomX))) * totZoomX,
-						-(y - (height / (2.0 * totZoomY))) * totZoomY);
-			g.scale(totZoomX, totZoomY);
-		} catch (NullPointerException e) {
+		if (g == null) {
 			// g was null, throw an IllegalArgumentException
 			System.err.println("Graphics2D parameter g must be non-null.");
-			e.printStackTrace();
 			throw new IllegalArgumentException();
 		}
+		
+		// Finds the x, y, and zoom of the current
+		AffineTransform tr = g.getTransform();
+		double xPos = tr.getTranslateX();   // x position of current zoom
+		double yPos = tr.getTranslateY();   // y position of current zoom
+		double currZoomX = tr.getScaleX();  // Current x zoom factor
+		double currZoomY = tr.getScaleY();  // Current y zoom factor
+
+		// Un-zooms and un-translates from the current position
+		g.scale(1.0 / currZoomX, 1.0 / currZoomY);
+		g.translate(xPos, yPos);
+
+		// Shifts and zooms to the new location
+		double totZoomX = zoomX * relZoom;
+		double totZoomY = zoomY * relZoom;
+		
+		g.translate(-(x - (width / (2.0 * totZoomX))) * totZoomX,
+					-(y - (height / (2.0 * totZoomY))) * totZoomY);
+		g.scale(totZoomX, totZoomY);
 	}
 
 	/**

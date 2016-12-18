@@ -24,10 +24,14 @@ public class ZoomTransition {
 	 *  TODO: Update RI as class is written
 	 */
 	
+	// Zoom Members
 	private final double ZOOM_START;  // Starting point of the zoom
 	private final double ZOOM_END;    // Ending point of the zoom
-	private final double STEP;       // Step size for the transition
-	private double currZoom;   // Current point in the zoom
+	private final double STEP;        // Step size for the transition
+	private double currZoom;          // Current point in the zoom
+	
+	// Debug Member
+	public final boolean checkRepEnable = false;
 	
 	/**
 	 * Creates a new transition with the given start zoom, end zoom, and zoom step size.
@@ -139,11 +143,13 @@ public class ZoomTransition {
 	/**
 	 * Asserts that the representation invariant holds.
 	 */
-	public void checkRep() {
+	private void checkRep() {
+		if (checkRepEnable) {
 		assert (STEP != 0) : "Step size is 0.";
 		assert (Math.min(ZOOM_END, ZOOM_START) <= currZoom &&
 				currZoom <= Math.min(ZOOM_END, ZOOM_START)) : 
 					"Current zoom is outside zoom range.";
+		}
 	}
 }
 

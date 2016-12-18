@@ -10,7 +10,7 @@ public class Graphics2DZoomTester {
 		
 		// Creates a face object
 		Face f = new Face();
-	    f.setPreferredSize(new Dimension(1000,1000));
+	    f.setPreferredSize(new Dimension(400,400));
 	    f.setBackground(Color.cyan);
 	    frame.add(f, BorderLayout.CENTER);
 	
