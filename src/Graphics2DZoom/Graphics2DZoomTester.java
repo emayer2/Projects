@@ -1,4 +1,4 @@
-package GraphicsZoom;
+package Graphics2DZoom;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ public class Graphics2DZoomTester {
 		
 		// Creates a face object
 		Face f = new Face();
-	    f.setPreferredSize(new Dimension(200,200));
+	    f.setPreferredSize(new Dimension(1000,1000));
 	    f.setBackground(Color.cyan);
 	    frame.add(f, BorderLayout.CENTER);
 	

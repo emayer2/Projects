@@ -1,4 +1,4 @@
-package GraphicsZoom;
+package Graphics2DZoom;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
